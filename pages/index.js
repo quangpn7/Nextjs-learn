@@ -1,30 +1,32 @@
-import Head from "next/head";
 import Link from "next/link";
-
-import styles from "../styles/Home.module.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useRouter } from "next/router";
+import chalk from "chalk";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <>
-      <Link href="/about">About page</Link>
-      <h1>Dynamic route</h1>
-      <ul>
-        <li>
-          <Link href={"/detail/1"}>To detail number 1</Link>
-        </li>
-        <li>
-          <Link href={"/detail/2"}>To detail number 2</Link>
-        </li>
-        <li>
-          <Link href={"/detail/3"}>To detail number 3</Link>
-        </li>
-        <li>
-          <Link href={"/detail/4"}>To detail number 4</Link>
-        </li>
-        <li>
-          <Link href={"/detail/5"}>To detail number 5</Link>
-        </li>
-      </ul>
+      <div className="text-center">
+        <ul className="list-unstyled">
+          <li>
+            <Link className="fst-none text-dark" href={"/products"}>
+              Product
+            </Link>
+          </li>
+          <li>
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                router.back();
+              }}
+            >
+              Back to last one
+            </button>
+          </li>
+        </ul>
+      </div>
     </>
   );
 }
