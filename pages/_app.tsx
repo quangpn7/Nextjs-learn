@@ -1,12 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Router } from "next/router";
 import React, { useEffect, useState } from "react";
+import { Provider } from "react-redux";
+import { wrapper } from "../src/redux/store";
 
 import styles from "../styles/Home.module.css";
 import Layout from "./layout";
 
-const MyApp = ({ Component, pageProps }): any => {
+const MyApp = ({ Component, pageProps, ...rest }): any => {
+  const { store, props } = wrapper.useWrappedStore(rest);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const start = () => {
       setLoading(true);
@@ -27,7 +31,7 @@ const MyApp = ({ Component, pageProps }): any => {
   const PAGE = (
     <Layout>{loading ? "Loading..." : <Component {...pageProps} />}</Layout>
   );
-  return <>{PAGE}</>;
+  return <Provider store={store}>{PAGE}</Provider>;
 };
 
 export default MyApp;

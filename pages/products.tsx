@@ -1,11 +1,13 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 type Props = any;
 
 const Products: FC<Props> = ({ products }) => {
+  const [count, setCount] = useState(0);
+
   return (
     <>
       <Head>
@@ -13,6 +15,16 @@ const Products: FC<Props> = ({ products }) => {
       </Head>
       <div className="text-center">
         <h1>Product list</h1>
+        <div className="container">
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              setCount(count + 1);
+            }}
+          >
+            CLicked: {count}
+          </button>
+        </div>
         <ul
           className="list-unstyled w-50 mx-auto text-start
       "

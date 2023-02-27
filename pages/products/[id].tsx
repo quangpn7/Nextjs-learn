@@ -18,13 +18,10 @@ type Props = {
 const ProductDetail: FC<Props> = ({ data }) => {
   const { id, title, description, price, images } = data;
   const router = useRouter();
+
   if (router.isFallback) {
-    return (
-      <>
-        <Head>Loading...</Head>
-        <h1 style={{ minHeight: "700px" }}>Loading...</h1>
-      </>
-    );
+    //fallback: true version
+    <h1>Loading...</h1>;
   }
   return (
     <>
@@ -95,7 +92,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: data.products.map((item: any) => ({
       params: { id: item.id.toString() },
     })),
-
     fallback: "blocking",
   };
 };

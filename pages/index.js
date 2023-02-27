@@ -8,11 +8,22 @@ export default function Home() {
 
   return (
     <>
-      <div className="text-center">
+      <div className="text-start containernpm">
         <ul className="list-unstyled">
           <li>
-            <Link className="fst-none text-dark" href={"/products"}>
-              Product
+            <Link
+              className="fst-none text-dark btn btn-primary text-white"
+              href={"/products"}
+            >
+              Products
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="fst-none text-dark btn btn-primary text-white my-4"
+              href={"/sticker"}
+            >
+              Sticker
             </Link>
           </li>
           <li>
