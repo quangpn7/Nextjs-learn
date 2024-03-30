@@ -4,7 +4,7 @@ import React from "react";
 type Props = {};
 
 const Footer = (props: Props) => {
-  return <h1 className="text-center text-danger">Footer</h1>;
+  return <h1 className="text-center text-danger">Windows 11 hehehehe</h1>;
 };
 
 export default Footer;
